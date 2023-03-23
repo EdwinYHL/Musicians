@@ -1,12 +1,12 @@
 internal class Program
 {
-    class Musician
+    abstract class Musician
     {
         public string name{ get; set;}
         public Musician(string n){name = n;}
         public void Greethin(){Console.WriteLine("Hello i'm: " + name);}
-        public virtual void Play()
-        {Console.WriteLine($"{name} my roll in thi's band is ");}
+        public /*virtual*/ abstract void Play();
+        /*{Console.WriteLine($"{name} my roll in thi's band is ");}*/
     }
     class Singer: Musician
     {
@@ -60,7 +60,7 @@ internal class Program
 
     private static void Main(string[] args)
     {
-        Console.WriteLine("With us Guns N' Roses");
+        Console.WriteLine("With us Guns N' Roses!!!");
         List<Musician> GunsNRoses = new List<Musician> ();
         GunsNRoses.Add(new Singer("Axl","Shure ULX2/58"));
         GunsNRoses.Add(new Pianist("Axl","Baldwin Bp 165"));
