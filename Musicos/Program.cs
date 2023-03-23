@@ -4,7 +4,9 @@ internal class Program
     {
         public string name{ get; set;}
         public Musician(string n){name = n;}
-        public void Greethin(){Console.WriteLine("Hello i'm: " + name);}
+        public virtual string GetGreethin() => "Hello i'm: " + name;
+        public virtual void Greethin()
+        {Console.WriteLine();}
         public /*virtual*/ abstract void Play();
         /*{Console.WriteLine($"{name} my roll in thi's band is ");}*/
     }
@@ -17,6 +19,10 @@ internal class Program
         {
             Console.WriteLine($"{name} it's singing");
         }
+        public override void Greethin()
+        {
+            Console.WriteLine($"{base.GetGreethin()} ,i'm the vocalist");
+        }
     }
     class Guitarist: Musician
     {
@@ -26,6 +32,10 @@ internal class Program
         public override void Play()
         {
             Console.WriteLine($"{name} it's playing solo with the guitar");
+        }
+                public override void Greethin()
+        {
+            Console.WriteLine($"{base.GetGreethin()} ,i'm the Guitarist");
         }
     }
     class Pianist: Musician
@@ -37,6 +47,10 @@ internal class Program
         {
             Console.WriteLine($"{name} it's playing solo with the piano");
         }
+                public override void Greethin()
+        {
+            Console.WriteLine($"{base.GetGreethin()} ,i'm the pianist");
+        }
     }
     class Drumer: Musician
     {
@@ -47,6 +61,10 @@ internal class Program
     {
     Console.WriteLine($"{name} it's playing solo with the drums");
     }
+            public override void Greethin()
+        {
+            Console.WriteLine($"{base.GetGreethin()} ,i'm the Drumer");
+        }
     }
     class Bass : Musician
     {public string bass{get;set;}
@@ -55,6 +73,10 @@ internal class Program
         public override void Play()
         {
             Console.WriteLine($"{name} it's playing solo with the bass");
+        }
+                public override void Greethin()
+        {
+            Console.WriteLine($"{base.GetGreethin()} ,i'm the Baseman");
         }
     }
 
